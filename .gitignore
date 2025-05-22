@@ -1,0 +1,31 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+
+# Playwright
+test-results/
+playwright-report/
+.playwright/
+
+# TypeScript
+*.tsbuildinfo
+dist/
+build/
+
+# Env/config
+.env
+.env.local
+.env.*.local
+
+# IDE/Editor (VS Code и др.)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
