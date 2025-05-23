@@ -8,7 +8,7 @@ test.describe('SauceDemo Inventory and Cart tests', () => {
     test.beforeEach(async ({ page }) => {
         pageManager = new PageManager(page);
 
-        await pageManager.loginPage.goto();
+        await pageManager.basePage.goto();
         await pageManager.loginPage.login(users.standardUser.username, users.standardUser.password);
     });
 

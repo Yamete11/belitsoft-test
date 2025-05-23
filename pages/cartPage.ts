@@ -1,10 +1,13 @@
-import {Page, expect, Locator} from '@playwright/test';
+import { Page, expect, Locator } from '@playwright/test';
+import { CartSelectors } from '../locators/locators';
+import { BasePage } from "./basePage";
 
-export class CartPage {
+export class CartPage extends BasePage{
     private readonly cartBadge: Locator;
 
     constructor(private page: Page) {
-        this.cartBadge = page.locator('.shopping_cart_badge');
+        super(page)
+        this.cartBadge = page.locator(CartSelectors.cartBadge);
     }
 
     async expectCartBadgeCount(expectedCount: number) {

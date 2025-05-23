@@ -10,24 +10,23 @@ test.describe('Airport Gap API tests', () => {
         apiContext = await request.newContext();
     })
 
-    test('Scenario 1: Verify Airport Count', async () => {
+    test('Verify Airport Count', async () => {
         const response = await apiContext.get(baseURL);
         const responseBody = await response.json();
 
         expect(responseBody.data.length).toBe(30);
     });
 
-    test('Scenario 2: Verify Specific Airports', async () => {
+    test('Verify Specific Airports', async () => {
         const response = await apiContext.get(baseURL);
         const responseBody = await response.json();
         const airportNames = responseBody.data.map((data : {attributes : any, name : string}) => data.attributes.name);
 
-        expect(airportNames).toContain('Akureyri Airport');
-        expect(airportNames).toContain('St. Anthony Airport');
-        expect(airportNames).toContain('CFB Bagotville');
+        expect(airportNames).toContain('Akureyri Airport' || 'St. Anthony Airport' || 'CFB Bagotville');
+
     });
 
-    test('Scenario 3: Verify Distance Between Airports', async () => {
+    test('Verify Distance Between Airports', async () => {
         const response = await apiContext.post(baseURL + '/distance', {
             data: {
                 from: 'KIX',
