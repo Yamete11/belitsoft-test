@@ -1,14 +1,16 @@
 import { Page, expect, Locator } from '@playwright/test';
-import { HomeSelectors } from '../locators/locators';
+import { HomeLocators } from '../locator-modules/locators';
+import {BasePage} from "./basePage";
 
 
-export class HomePage {
+export class HomePage extends BasePage{
     private readonly inventoryItems: Locator;
     private readonly firstAddToCartButton: Locator;
 
-    constructor(private page: Page) {
-        this.inventoryItems = page.locator(HomeSelectors.inventoryItems);
-        this.firstAddToCartButton = page.locator(HomeSelectors.firstAddToCartButton).first();
+    constructor(page: Page) {
+        super(page)
+        this.inventoryItems = page.locator(HomeLocators.inventoryItems);
+        this.firstAddToCartButton = page.locator(HomeLocators.firstAddToCartButton).first();
     }
 
     async expectInventoryCount(expectedCount: number) {

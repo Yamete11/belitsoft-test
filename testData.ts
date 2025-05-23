@@ -7,4 +7,5 @@ export const users = {
 
 export const urls = {
     sauceUrl: 'https://www.saucedemo.com/',
+    airportURL:'https://airportgap.com/api/airports'
 };

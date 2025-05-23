@@ -13,6 +13,7 @@ export class PageManager{
 
     constructor(page: Page) {
         this.page = page;
+        this.basePage = new BasePage(page);
         this.homePage = new HomePage(page);
         this.loginPage = new LoginPage(page);
         this.cartPage = new CartPage(page);

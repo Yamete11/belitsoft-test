@@ -1,5 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
-import {urls} from "../testData";
+import { urls } from "../testData";
 
 export class BasePage {
     protected readonly page: Page;
@@ -11,5 +11,4 @@ export class BasePage {
     async goto() {
         await this.page.goto(urls.sauceUrl);
     }
-
 }

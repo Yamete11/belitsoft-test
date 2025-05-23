@@ -1,16 +1,18 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-    workers: 1,
     testDir: './tests',
+    workers: 1,
     timeout: 30_000,
     expect: {
         timeout: 5_000,
     },
     use: {
-        baseURL: 'https://example.com',
-        headless: false,
+        headless: true,
         screenshot: 'only-on-failure',
         video: 'retain-on-failure',
+
+        actionTimeout: 10_000,
+        navigationTimeout: 15_000,
     },
 });

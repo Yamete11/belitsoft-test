@@ -1,16 +1,18 @@
 import { Page, Locator } from '@playwright/test';
 import { urls } from '../testData';
-import { LoginSelectors } from '../locators/locators';
+import { LoginLocators } from '../locator-modules/locators';
+import {BasePage} from "./basePage";
 
-export class LoginPage {
+export class LoginPage extends BasePage{
     private readonly usernameInput: Locator;
     private readonly passwordInput: Locator;
     private readonly loginButton: Locator;
 
-    constructor(private readonly page: Page) {
-        this.usernameInput = page.locator(LoginSelectors.usernameInput);
-        this.passwordInput = page.locator(LoginSelectors.passwordInput);
-        this.loginButton = page.locator(LoginSelectors.loginButton);
+    constructor(page: Page) {
+        super(page)
+        this.usernameInput = page.locator(LoginLocators.usernameInput);
+        this.passwordInput = page.locator(LoginLocators.passwordInput);
+        this.loginButton = page.locator(LoginLocators.loginButton);
     }
 
     async login(username: string, password: string) {
